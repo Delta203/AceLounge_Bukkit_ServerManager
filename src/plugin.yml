@@ -1,0 +1,28 @@
+name: ServerManager
+version: 3.0
+author: Delta203
+depend: [ViaVersion]
+
+main: de.servermanager.delta203.plugin.ServerManager
+
+commands:
+  help:
+  ?:
+  coins:
+  rules:
+  regeln:
+  terms:
+  apply:
+  bewerben:
+  yt:
+  youtuber:
+  discord:
+  logindatas:
+  changepassword:
+  luck:
+  ping:
+  trololol:
+  stop:
+       permission: admin.delta
+  vanish:
+       permission: ab.ban

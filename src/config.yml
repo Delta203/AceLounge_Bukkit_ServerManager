@@ -1,0 +1,10 @@
+# ServerManager (AceLoungeAPI)
+# Plugin by Delta203
+# v3.0 Spigot
+
+# mysql connection
+MySQl_url: 'localhost'
+MySQl_port: 3306
+MySQl_database: 'test'
+MySQl_user: 'root'
+MySQl_password: ''
