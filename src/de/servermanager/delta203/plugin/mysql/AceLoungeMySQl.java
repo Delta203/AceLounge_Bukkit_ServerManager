@@ -73,6 +73,7 @@ public class AceLoungeMySQl {
 					+ "Passwort VARCHAR(100),"
 					+ "Coins INT(16),"
 					+ "Jetons INT(16),"
+					+ "Diamanten INT(16),"
 					+ "OnlineTime LONG,"
 					+ "Rang VARCHAR(100),"
 					+ "Joinpower Int(16),"

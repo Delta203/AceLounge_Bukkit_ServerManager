@@ -47,7 +47,16 @@ public class SM_Commands implements CommandExecutor {
 		else if(cmd.getName().equalsIgnoreCase("coins")) {
 			if(sender instanceof Player) {
 				Player p = (Player) sender;
-				p.sendMessage(AceLoungeAPI.prefix + "§7Du hast §6" + AceLoungeAPI.getCoins(p.getUniqueId().toString()) + " Coins §7und §a" + AceLoungeAPI.getJetons(p.getUniqueId().toString()) + " Jetons");
+				p.sendMessage(AceLoungeAPI.prefix + "§7Du hast §6" + AceLoungeAPI.getCoins(p.getUniqueId().toString()) + " Coins §7und §a" + AceLoungeAPI.getJetons(p.getUniqueId().toString()) + " Jetons §8(§aⓄ§8)");
+			}
+		}
+		/*
+		 * Coins
+		 */
+		else if(cmd.getName().equalsIgnoreCase("diamonds")) {
+			if(sender instanceof Player) {
+				Player p = (Player) sender;
+				p.sendMessage(AceLoungeAPI.prefix + "§7Du hast §b" + AceLoungeAPI.getDiamonds(p.getUniqueId().toString()) + " Diamanten §8(§b⟡§8) §7Du kannst bei §6shop.acelounge.de §7Diamanten kaufen.");
 			}
 		}
 		/*

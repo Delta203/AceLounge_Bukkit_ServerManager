@@ -278,4 +278,39 @@ public class AceLoungeAPI {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Diamanten eines Spielers
+	 * @param uuid
+	 * @return
+	 */
+	public static int getDiamonds(String uuid) {
+		try {
+			PreparedStatement ps = AceLoungeMySQl.con.prepareStatement("SELECT Diamanten FROM Spieler_Daten WHERE SpielerUUID = ?");
+			ps.setString(1, uuid);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				return rs.getInt("Diamanten");
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	/**
+	 * Setze die Diamanten eines Spielers
+	 * @param uuid
+	 * @param input
+	 */
+	public static void addDiamonds(String uuid, int input) {
+		try {
+			PreparedStatement ps = AceLoungeMySQl.con.prepareStatement("UPDATE Spieler_Daten SET Diamanten = ? WHERE SpielerUUID = ?");
+			ps.setInt(1, getDiamonds(uuid) + input);
+			ps.setString(2, uuid);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

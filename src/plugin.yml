@@ -9,6 +9,7 @@ commands:
   help:
   ?:
   coins:
+  diamonds:
   rules:
   regeln:
   terms:

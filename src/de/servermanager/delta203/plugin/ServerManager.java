@@ -99,6 +99,7 @@ public class ServerManager extends JavaPlugin {
 		getCommand("help").setExecutor(new SM_Commands());
 		getCommand("?").setExecutor(new SM_Commands());
 		getCommand("coins").setExecutor(new SM_Commands());
+		getCommand("diamonds").setExecutor(new SM_Commands());
 		getCommand("rules").setExecutor(new SM_Commands());
 		getCommand("regeln").setExecutor(new SM_Commands());
 		getCommand("terms").setExecutor(new SM_Commands());
