@@ -22,7 +22,5 @@ commands:
   luck:
   ping:
   trololol:
-  stop:
-       permission: admin.delta
   vanish:
        permission: ab.ban

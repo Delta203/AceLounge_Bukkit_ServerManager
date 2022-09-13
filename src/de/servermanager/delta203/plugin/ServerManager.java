@@ -92,7 +92,7 @@ public class ServerManager extends JavaPlugin {
 		getCommand("changepassword").setExecutor(new SM_Commands());
 		getCommand("luck").setExecutor(new SM_Commands());
 		getCommand("ping").setExecutor(new SM_Commands());
-		getCommand("stop").setExecutor(new SM_Commands());
+//		getCommand("stop").setExecutor(new SM_Commands());
 		getCommand("trololol").setExecutor(new SM_Commands());
 		getCommand("vanish").setExecutor(new SM_Commands());
 		
