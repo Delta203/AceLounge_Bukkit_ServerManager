@@ -45,8 +45,9 @@ public class SM_Listener_Login implements Listener {
 						nonpremis.add(all);
 					}
 				}
-				Player target = nonpremis.get(new Random().nextInt(nonpremis.size()));
-				if(target != null) {
+				
+				if(nonpremis.size() != 0) {
+					Player target = nonpremis.get(new Random().nextInt(nonpremis.size()));
 					target.kickPlayer("§cDu wurdest vom Server gekickt um einem §6§lPremium §r§cSpieler §8(§ehttps://shop.AceLounge.de/§8) §cden Platz frei zu machen.");
 					e.allow();
 				}else {
