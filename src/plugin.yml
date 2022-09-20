@@ -1,4 +1,4 @@
-name: ServerManager
+name: AceLounge
 version: 3.0
 author: Delta203
 depend: [ViaVersion]
@@ -6,6 +6,9 @@ depend: [ViaVersion]
 main: de.servermanager.delta203.plugin.ServerManager
 
 commands:
+  stop:
+       permission: be.op
+  icanhasbukkit:
   help:
   ?:
   coins:

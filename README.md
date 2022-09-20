@@ -2,7 +2,8 @@
 **Version 3.0**
 <br/><br/>
 ServerManager &amp; AceLoungeAPI<br/>
-export as ServerManager.jar
+export as ServerManager.jar<br/>
+configpath /AceLounge
 
 Requirements:
 ```

@@ -92,6 +92,27 @@ public class AceLoungeAPI {
 	}
 	
 	/**
+	 * Glassfarbe eines Spielers
+	 * praktisch für Inventare
+	 * Default 15
+	 * @param uuid
+	 * @return
+	 */
+	public static int getGlassColor(String uuid) {
+		try {
+			PreparedStatement ps = AceLoungeMySQl.con.prepareStatement("SELECT GlassColor FROM FriendSystem_Settings WHERE SpielerUUID = ?");
+			ps.setString(1, uuid);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				return rs.getInt("GlassColor");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 15;
+	}
+	
+	/**
 	 * Checke ob der Spieler registriert ist
 	 * @param uuid
 	 * @return

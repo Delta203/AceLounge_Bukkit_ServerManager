@@ -4,6 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
+import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -186,30 +187,36 @@ public class SM_Commands implements CommandExecutor {
 				p.sendMessage(AceLoungeAPI.prefix + "§7Dein Ping: §6" + ping + "ms");
 			}
 		}
-//		/*
-//		 * stop
-//		 */
-//		else if(cmd.getName().equalsIgnoreCase("stop")) {
-//			if(sender.hasPermission("*")) {
-//				sender.sendMessage("§cYou do not have permission to execute this command!");
-//				return false;
-//			}
-//			
-//			for(Player all : Bukkit.getOnlinePlayers()) {
-//				all.sendMessage(AceLoungeAPI.prefix + "§6Der §eServer §6startet neu!");
-//				AceLoungeAPI.sendOtherServer(all, AceLoungeAPI.lobbies[new Random().nextInt(AceLoungeAPI.lobbies.length)]);
-//			}
-//			
-//			Bukkit.getScheduler().scheduleSyncDelayedTask(ServerManager.getInstance(), new Runnable() {
-//				
-//				@Override
-//				public void run() {
-//					for(Player all : Bukkit.getOnlinePlayers()) all.kickPlayer(AceLoungeAPI.prefix + "§6Der §eServer §6startet neu...");
-//				}
-//			}, 20);
-//			
-//			Bukkit.getScheduler().scheduleSyncDelayedTask(ServerManager.getInstance(), () -> Bukkit.getServer().shutdown(), 40);
-//		}
+		/*
+		 * stop
+		 */
+		else if(cmd.getName().equalsIgnoreCase("stop")) {
+			if(!sender.hasPermission("be.op")) {
+				sender.sendMessage("§cYou do not have permission to execute this command!");
+				return false;
+			}
+			
+			for(Player all : Bukkit.getOnlinePlayers()) {
+				all.sendMessage(AceLoungeAPI.prefix + "§6Der §eServer §6startet neu!");
+				AceLoungeAPI.sendOtherServer(all, AceLoungeAPI.lobbies[new Random().nextInt(AceLoungeAPI.lobbies.length)]);
+			}
+			
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ServerManager.getInstance(), new Runnable() {
+				
+				@Override
+				public void run() {
+					for(Player all : Bukkit.getOnlinePlayers()) all.kickPlayer(AceLoungeAPI.prefix + "§6Der §eServer §6startet neu...");
+				}
+			}, 20);
+			
+			Bukkit.getScheduler().scheduleSyncDelayedTask(ServerManager.getInstance(), () -> Bukkit.getServer().shutdown(), 40);
+		}
+		/*
+		 * icanhasbukkit
+		 */
+		else if(cmd.getName().equalsIgnoreCase("icanhasbukkit")) {
+			sender.sendMessage("§cI'm sorry, but you do not have permission to perform this command. Please contact the server administrators if you believe that this is in error.");
+		}
 		/*
 		 * logindatas
 		 */
