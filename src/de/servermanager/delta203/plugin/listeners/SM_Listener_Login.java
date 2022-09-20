@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerLoginEvent.Result;
 
+import de.dytanic.cloudnet.ext.bridge.server.BridgeServerHelper;
 import de.servermanager.delta203.api.AceLoungeAPI;
 import de.servermanager.delta203.plugin.utils.SM_PermissionManager;
 
@@ -30,6 +31,17 @@ public class SM_Listener_Login implements Listener {
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onLogin(PlayerLoginEvent e) {
 		SM_PermissionManager.updateRankAndJoinPower(e.getPlayer());
+		
+		/* kicke den spieler nur wenn lobbyphase */
+		if(AceLoungeAPI.serverVersion.equals("v1_8_R3")) {
+			String motd = BridgeServerHelper.getMotd();
+			//Bukkit.broadcastMessage(motd);
+			if(motd.equalsIgnoreCase("setup") || motd.equalsIgnoreCase("ingame") || motd.equalsIgnoreCase("restart")) {
+				//Bukkit.broadcastMessage("§ccancel");
+				return;
+			}
+		}
+		/* kicke den spieler nur wenn lobbyphase */
 		
 		if(Bukkit.getOnlinePlayers().size() >= Bukkit.getMaxPlayers()) {
 			

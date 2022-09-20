@@ -7,6 +7,8 @@ configpath /AceLounge
 
 Requirements:
 ```
+CloudNetDriver
+
 permissionsEx
 
 spigot-1.8.8
