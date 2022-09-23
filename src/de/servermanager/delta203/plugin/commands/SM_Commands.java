@@ -215,7 +215,7 @@ public class SM_Commands implements CommandExecutor {
 		 * icanhasbukkit
 		 */
 		else if(cmd.getName().equalsIgnoreCase("icanhasbukkit")) {
-			sender.sendMessage("§cI'm sorry, but you do not have permission to perform this command. Please contact the server administrators if you believe that this is in error.");
+			sender.sendMessage("This server is running CraftBukkit version AceLounge-git-Spigot (MC: " + AceLoungeAPI.serverVersion + ") (Implementing API version " + AceLoungeAPI.serverVersion + ")");
 		}
 		/*
 		 * logindatas

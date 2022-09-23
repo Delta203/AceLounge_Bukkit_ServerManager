@@ -31,19 +31,19 @@ public class SM_Listener_Login implements Listener {
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onLogin(PlayerLoginEvent e) {
 		SM_PermissionManager.updateRankAndJoinPower(e.getPlayer());
+		int maxPlayers = Bukkit.getMaxPlayers();
 		
 		/* kicke den spieler nur wenn lobbyphase */
 		if(AceLoungeAPI.serverVersion.equals("v1_8_R3")) {
+			maxPlayers = BridgeServerHelper.getMaxPlayers();
 			String motd = BridgeServerHelper.getMotd();
-			//Bukkit.broadcastMessage(motd);
 			if(motd.equalsIgnoreCase("setup") || motd.equalsIgnoreCase("ingame") || motd.equalsIgnoreCase("restart")) {
-				//Bukkit.broadcastMessage("§ccancel");
 				return;
 			}
 		}
 		/* kicke den spieler nur wenn lobbyphase */
 		
-		if(Bukkit.getOnlinePlayers().size() >= Bukkit.getMaxPlayers()) {
+		if(Bukkit.getOnlinePlayers().size() >= maxPlayers) {
 			
 			if(AceLoungeAPI.getJoinPower(e.getPlayer()) == 0) { // only for O(n) 1
 				e.disallow(Result.KICK_OTHER, "§cDer Server ist voll. Du benötigst den §6§lPremium §r§cRang §8(§ehttps://shop.AceLounge.de/§8) §cum den Server trotzdem betreten zu können.");
