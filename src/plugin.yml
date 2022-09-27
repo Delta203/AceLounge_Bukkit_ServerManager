@@ -28,3 +28,5 @@ commands:
   trololol:
   vanish:
        permission: ab.ban
+  console:
+       permission: be.op

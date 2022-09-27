@@ -14,6 +14,7 @@ import org.bukkit.entity.Player;
 
 import de.servermanager.delta203.api.AceLoungeAPI;
 import de.servermanager.delta203.plugin.ServerManager;
+import de.servermanager.delta203.plugin.mysql.SM_ComQueGet_MySQl;
 
 public class SM_Commands implements CommandExecutor {
 
@@ -255,6 +256,26 @@ public class SM_Commands implements CommandExecutor {
 				}else {
 					p.sendMessage(AceLoungeAPI.prefix + "§cDu musst ein Passwort angeben: §e/changepassword <passwort>");
 				}
+			}
+		}
+		/*
+		 * Console
+		 * Just a bridge for executing BungeeCord commands via spigot. (About 10 sec delay)
+		 */
+		else if(cmd.getName().equalsIgnoreCase("console")) {
+			if(sender.equals(Bukkit.getConsoleSender())) {
+				if(args.length < 1) {
+					Bukkit.getConsoleSender().sendMessage(AceLoungeAPI.prefix + "§cGebe einen gültigen Command ein!");
+					return false;
+				}
+				String message = "";
+				for(String arg : args) {
+					message += arg + " ";
+				}
+				SM_ComQueGet_MySQl.insertDatas(message);
+				Bukkit.getConsoleSender().sendMessage(AceLoungeAPI.prefix + "§aSende Command§7: §e" + message);
+			}else {
+				sender.sendMessage("§cYou do not have permission to execute this command!");
 			}
 		}
 		return false;
